@@ -20,7 +20,7 @@ public:
 		GLuint fragment_shader;
 		GLuint program;
 
-		//¶¥µã×ÅÉ«Æ÷Ô´´úÂë//L("")
+		//é¡¶ç‚¹ç€è‰²å™¨æºä»£ç //L("")
 		
 		static const GLchar* vertex_shader_source[] =
 		{
@@ -37,7 +37,7 @@ public:
 
 		
 
-		//Æ¬¶Î×ÅÉ«Æ÷Ô´´úÂë
+		//ç‰‡æ®µç€è‰²å™¨æºä»£ç 
 		
 
 		static const GLchar* fragment_shader_source[] =
@@ -56,28 +56,28 @@ public:
 		
 
 
-		//´´½¨²¢±àÒë¶¥µã×ÅÉ«Æ÷
-		vertex_shader = glCreateShader(GL_VERTEX_SHADER);//´´½¨¿Õ×ÅÉ«Æ÷¶ÔÏó£¬ÓÃÓÚ½ÓÊÕÔ´´úÂë²¢±àÒë
-		glShaderSource(vertex_shader, 1, vertex_shader_source, NULL);//½«×ÅÉ«Æ÷Ô´Âë´«µİ¸ø×ÅÉ«Æ÷¶ÔÏó£¬ÒÔ±£ÁôÔ´´úÂë¸±±¾
-		glCompileShader(vertex_shader);//±àÒë×ÅÉ«Æ÷¶ÔÏóÖĞ°üº¬µÄÔ´´úÂë
+		//åˆ›å»ºå¹¶ç¼–è¯‘é¡¶ç‚¹ç€è‰²å™¨
+		vertex_shader = glCreateShader(GL_VERTEX_SHADER);//åˆ›å»ºç©ºç€è‰²å™¨å¯¹è±¡ï¼Œç”¨äºæ¥æ”¶æºä»£ç å¹¶ç¼–è¯‘
+		glShaderSource(vertex_shader, 1, vertex_shader_source, NULL);//å°†ç€è‰²å™¨æºç ä¼ é€’ç»™ç€è‰²å™¨å¯¹è±¡ï¼Œä»¥ä¿ç•™æºä»£ç å‰¯æœ¬
+		glCompileShader(vertex_shader);//ç¼–è¯‘ç€è‰²å™¨å¯¹è±¡ä¸­åŒ…å«çš„æºä»£ç 
 
-		//´´½¨²¢±àÒëÆ¬¶Î×ÅÉ«Æ÷
+		//åˆ›å»ºå¹¶ç¼–è¯‘ç‰‡æ®µç€è‰²å™¨
 		fragment_shader = glCreateShader(GL_FRAGMENT_SHADER);
 		glShaderSource(fragment_shader, 1, fragment_shader_source, NULL);
 		glCompileShader(fragment_shader);
 
-		//´´½¨³ÌĞò¡¢¸½¼Ó×ÅÉ«Æ÷ÖÁ´Ë¡¢Á¬½Ó
-		program = glCreateProgram();//´´½¨³ÌĞò¶ÔÏó£¬¿É½«×ÅÉ«Æ÷¶ÔÏó¸½¼Óµ½³ÌĞò¶ÔÏó
-		glAttachShader(program, vertex_shader);//¸½¼Ó×ÅÉ«Æ÷¶ÔÏóµ½³ÌĞò¶ÔÏó
+		//åˆ›å»ºç¨‹åºã€é™„åŠ ç€è‰²å™¨è‡³æ­¤ã€è¿æ¥
+		program = glCreateProgram();//åˆ›å»ºç¨‹åºå¯¹è±¡ï¼Œå¯å°†ç€è‰²å™¨å¯¹è±¡é™„åŠ åˆ°ç¨‹åºå¯¹è±¡
+		glAttachShader(program, vertex_shader);//é™„åŠ ç€è‰²å™¨å¯¹è±¡åˆ°ç¨‹åºå¯¹è±¡
 		glAttachShader(program, fragment_shader);
-		glLinkProgram(program);//½«¸½¼Óµ½³ÌĞò¶ÔÏóµÄ×ÅÉ«Æ÷¶ÔÏóÁ¬½ÓÖÁÒ»Æğ
+		glLinkProgram(program);//å°†é™„åŠ åˆ°ç¨‹åºå¯¹è±¡çš„ç€è‰²å™¨å¯¹è±¡è¿æ¥è‡³ä¸€èµ·
 
-		//×ÅÉ«Æ÷±»¸½¼Ó²¢Á¬½ÓÖÁ¡°program¡±ºó¾ÍÉ¾³ı
-		glDeleteShader(vertex_shader);//É¾³ı×ÅÉ«Æ÷¶ÔÏó£¬²»ÔÙĞèÒª
+		//ç€è‰²å™¨è¢«é™„åŠ å¹¶è¿æ¥è‡³â€œprogramâ€åå°±åˆ é™¤
+		glDeleteShader(vertex_shader);//åˆ é™¤ç€è‰²å™¨å¯¹è±¡ï¼Œä¸å†éœ€è¦
 		glDeleteShader(fragment_shader);
 
 
-		return program;//·µ»ØÓÃÓÚäÖÈ¾µÄ±íÊ¾ĞÎÊ½ÎªÖĞ¼ä¶ş½øÖÆµÄ¿ÉÖ´ĞĞÎÄ¼ş
+		return program;//è¿”å›ç”¨äºæ¸²æŸ“çš„è¡¨ç¤ºå½¢å¼ä¸ºä¸­é—´äºŒè¿›åˆ¶çš„å¯æ‰§è¡Œæ–‡ä»¶
 	}
 
 
